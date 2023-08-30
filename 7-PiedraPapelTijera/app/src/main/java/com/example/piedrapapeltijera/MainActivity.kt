@@ -11,21 +11,19 @@ class MainActivity : AppCompatActivity() {
         val jugadas:Array<Array<String>> = arrayOf(
             arrayOf("piedra","papel"),
             arrayOf("tijera","papel",),
-            arrayOf("tijera","tijera")
+            arrayOf("piedra","tijera")
         )
         println(Partido(jugadas))
     }
     fun Partido(jugadas:Array<Array<String>>):String{
         val movimientos:Array<String> = arrayOf("papel","tijera","piedra")
         var resultado:Int = 0
-        for (a in jugadas){
-            if (movimientos.indexOf(a[0]) > movimientos.indexOf(a[1])){
-                resultado += 1
-                println(resultado)
-            }
-            else if (movimientos.indexOf(a[0]) < movimientos.indexOf(a[1])){
-                resultado -= 1
-                println(resultado)
+        for (a in jugadas) {
+            when (movimientos.indexOf(a[0]) - movimientos.indexOf(a[1])) {
+                1 -> resultado += 1
+                2 -> resultado -= 1
+                -1 -> resultado -= 1
+                -2 -> resultado += 1
             }
         }
         return if (resultado == 0) "Fuen un empate"
