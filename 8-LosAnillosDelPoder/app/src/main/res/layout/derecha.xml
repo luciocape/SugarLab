@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="CallMilei"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtElecDerecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
@@ -25,15 +26,17 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.956">
+        app:layout_constraintTop_toBottomOf="@+id/btnMacri"
+        app:layout_constraintVertical_bias="0.801">
 
         <Button
             android:id="@+id/izquierda"
             android:layout_width="110dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="presionarDigito"
             android:text="Equipo de izquierda" />
 
         <Button
@@ -42,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center|center_horizontal|center_vertical"
+            android:onClick="presionarDigito"
             android:text="Lucha" />
 
         <Button
@@ -49,70 +53,86 @@
             android:layout_width="108dp"
             android:layout_height="66dp"
             android:layout_weight="1"
+            android:onClick="presionarDigito"
             android:text="Equipo de derecha" />
 
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnBullrich"
         android:layout_width="92dp"
         android:layout_height="123dp"
         android:layout_marginBottom="108dp"
         android:background="@drawable/bullrich_s"
-        android:contentDescription="foto de bullrich"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton6"
+        android:contentDescription="boton de bullrich"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMacri"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
+        app:layout_constraintStart_toEndOf="@+id/btnMacri"
         tools:visibility="visible" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/btnMilei"
         android:layout_width="90dp"
         android:layout_height="123dp"
         android:layout_marginBottom="108dp"
         android:background="@drawable/milei_s"
-        android:contentDescription="foto de milei"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton6"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        android:contentDescription="boton de milei"
+        android:onClick="presionarDigito"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMacri"
+        app:layout_constraintEnd_toStartOf="@+id/btnMacri"
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/btnMarra"
         android:layout_width="96dp"
         android:layout_height="122dp"
         android:background="@drawable/marra_s"
-        android:contentDescription="foto de marra"
+        android:contentDescription="boton de marra"
+        android:onClick="presionarDigito"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        app:layout_constraintEnd_toStartOf="@+id/btnMacri"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintTop_toBottomOf="@+id/btnMilei"
         app:layout_constraintVertical_bias="0.346" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="92dp"
-        android:layout_height="121dp"
-        android:background="@drawable/larreta_s"
-        android:contentDescription="foto de larreta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toEndOf="@+id/imageButton6"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-        app:layout_constraintVertical_bias="0.344" />
-
-    <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/btnMacri"
         android:layout_width="91dp"
         android:layout_height="123dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="196dp"
         android:background="@drawable/macri_s"
-        android:contentDescription="foto de macri"
+        android:contentDescription="boton de macri"
+        android:onClick="presionarDigito"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="92dp"
+        android:background="#009688"
+        android:src="@drawable/alberto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <ImageButton
+        android:id="@+id/btnLarreta"
+        android:layout_width="92dp"
+        android:layout_height="124dp"
+        android:background="@drawable/larreta_s"
+        android:contentDescription="boton de larreta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMacri"
+        app:layout_constraintTop_toBottomOf="@+id/btnBullrich"
+        app:layout_constraintVertical_bias="0.35" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

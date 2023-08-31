@@ -2,13 +2,30 @@ package com.example.losanillosdelpoder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageButton
 
 class MainActivity : AppCompatActivity() {
+    //Derecha
+
+    val btnBullrich:ImageButton? = null
+    val btnLarreta:ImageButton? = null
+    val btnMarra:ImageButton? = null
+    val btnMacri:ImageButton? = null
+    //Izquierda
+    val btnMassa:ImageButton? = null
+    val btnAlberto:ImageButton? = null
+    val btnCristina:ImageButton? = null
+    val btnGrabois:ImageButton? = null
+    val btnKirchner:ImageButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
         setContentView(R.layout.derecha)
-        val ataque:Map<String,Int> = mapOf(
-            "CristinaK" to 7,
+        setContentView(R.layout.izquierda)
+        setContentView(R.layout.lucha)
+        /*val ataque:Map<String,Int> = mapOf(
+            "Cristina" to 7,
             "Kirchner" to 0,
             "Alberto" to -1,
             "Massa" to (1..5).random(),
@@ -30,9 +47,21 @@ class MainActivity : AppCompatActivity() {
                 guerreros.add(Guerreros(ataque.getValue(x), false,(1..4).random()))
             }
         }
-        println(Pelea(guerreros))
-    }
+        println(Pelea(guerreros))*/
+        var btnMilei: ImageButton = findViewById(R.id.btnMilei)
+        btnMilei.setOnClickListener(CallMilei())
 
+    }
+    fun CallMilei(view:View){
+
+        btnBullrich = findViewById(R.id.btnBullrich)
+        btnLarreta = findViewById(R.id.btnLarreta)
+        btnMarra = findViewById(R.id.btnMarra)
+        btnMacri = findViewById(R.id.btnMacri)
+        kotlin.io.println(view.id.toString())
+        println("hola")
+        //guerreros.add(Guerreros(ataque.getValue("Milei"), true,(1..4).random()))
+    }
     fun Pelea(guerreros:MutableList<Guerreros>):String{
         var resultado:Int = 0
         var poderBuenos:Int = 0

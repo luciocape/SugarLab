@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LosAnillosDelPoder</string>
+    <string name="candidato_derecha_1_s">bullrich_s</string>
+    <string name="candidato_derecha_2_s">milei_s</string>
+    <string name="candidato_derecha_3_s">larreta_s</string>
+    <string name="candidato_derecha_4_s">marra_s</string>
+    <string name="candidato_derecha_5_s">macri_s</string>
 </resources>

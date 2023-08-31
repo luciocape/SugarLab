@@ -13,15 +13,17 @@
         tools:layout_editor_absoluteY="442dp">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnFight"
             android:layout_width="match_parent"
             android:layout_height="106dp"
+            android:onClick="presionarDigito"
             android:text="¡¡Fight!!" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnReiniciar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="presionarDigito"
             android:text="Reiniciar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
