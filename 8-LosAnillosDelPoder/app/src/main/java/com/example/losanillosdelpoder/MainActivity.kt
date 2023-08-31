@@ -2,13 +2,11 @@ package com.example.losanillosdelpoder
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import java.util.Objects
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.derecha)
         val ataque:Map<String,Int> = mapOf(
             "CristinaK" to 7,
             "Kirchner" to 0,
