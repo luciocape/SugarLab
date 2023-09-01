@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="CallMilei"
+    android:onClick="CallDerecha"
     tools:context=".MainActivity">
 
     <TextView
@@ -21,19 +21,18 @@
         app:layout_constraintVertical_bias="0.049" />
 
     <LinearLayout
-        android:layout_width="424dp"
-        android:layout_height="65dp"
+        android:layout_width="387dp"
+        android:layout_height="61dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMacri"
-        app:layout_constraintVertical_bias="0.801">
+        app:layout_constraintVertical_bias="0.8">
 
         <Button
             android:id="@+id/izquierda"
-            android:layout_width="110dp"
+            android:layout_width="111dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="presionarDigito"
@@ -65,6 +64,7 @@
         android:layout_marginBottom="108dp"
         android:background="@drawable/bullrich_s"
         android:contentDescription="boton de bullrich"
+        android:onClick="CallDerecha"
         app:layout_constraintBottom_toBottomOf="@+id/btnMacri"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
@@ -78,7 +78,7 @@
         android:layout_marginBottom="108dp"
         android:background="@drawable/milei_s"
         android:contentDescription="boton de milei"
-        android:onClick="presionarDigito"
+        android:onClick="CallDerecha"
         app:layout_constraintBottom_toBottomOf="@+id/btnMacri"
         app:layout_constraintEnd_toStartOf="@+id/btnMacri"
         app:layout_constraintHorizontal_bias="0.457"
@@ -90,7 +90,7 @@
         android:layout_height="122dp"
         android:background="@drawable/marra_s"
         android:contentDescription="boton de marra"
-        android:onClick="presionarDigito"
+        android:onClick="CallDerecha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnMacri"
         app:layout_constraintHorizontal_bias="0.493"
@@ -105,7 +105,7 @@
         android:layout_marginBottom="196dp"
         android:background="@drawable/macri_s"
         android:contentDescription="boton de macri"
-        android:onClick="presionarDigito"
+        android:onClick="CallDerecha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -129,6 +129,7 @@
         android:layout_height="124dp"
         android:background="@drawable/larreta_s"
         android:contentDescription="boton de larreta"
+        android:onClick="CallDerecha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnMacri"
