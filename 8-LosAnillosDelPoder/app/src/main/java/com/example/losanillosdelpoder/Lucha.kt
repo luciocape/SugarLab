@@ -41,14 +41,16 @@ class Lucha: AppCompatActivity() {
         var poderMalos:Int = 0
         for (i in guerreros){
             if (i.corazon){
-                poderBuenos += i.ataque
+                poderBuenos += i.ataque * i.cant
             }
             else{
-                poderMalos += i.ataque
+                poderMalos += i.ataque * i.cant
             }
         }
         resultado = poderBuenos - poderMalos
-        if (resultado == 0) Toast.makeText(this, "Fue un empate", Toast.LENGTH_SHORT).show()
+        if (resultado == 0){
+            Toast.makeText(this, "Fue un empate", Toast.LENGTH_SHORT).show()
+        }
         else if (resultado < 0){
             Toast.makeText(this, "Gano la izquierda", Toast.LENGTH_SHORT).show()
         }

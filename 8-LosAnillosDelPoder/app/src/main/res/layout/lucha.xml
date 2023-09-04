@@ -20,7 +20,7 @@
             android:id="@+id/btnFight"
             android:layout_width="match_parent"
             android:layout_height="106dp"
-            android:onClick="presionarDigito"
+            android:onClick="Pelea"
             android:text="¡¡Fight!!" />
 
 
@@ -28,7 +28,7 @@
             android:id="@+id/btnReiniciar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="presionarDigito"
+            android:onClick="Regresar"
             android:text="Reiniciar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnRegresar2"
-        android:layout_width="117dp"
-        android:layout_height="49dp"
-        android:onClick="Regresar"
-        android:text="Volver"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+    <ImageButton
+        android:id="@+id/btnReiniciar3"
+        android:layout_width="75dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="188dp"
+        android:background="@drawable/reinicio"
+        android:contentDescription="Reinicio"
+        android:onClick="Reiniciar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtElecIzquierda"
@@ -31,15 +34,27 @@
         android:id="@+id/btnAlberto"
         android:layout_width="96dp"
         android:layout_height="122dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/alberto_s"
-        android:contentDescription="foto de alberto"
-        android:onClick="presionarDigito"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="Alberto"
+        android:onClick="CallIzquierda"
         app:layout_constraintEnd_toStartOf="@+id/btnCristina"
         app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMassa"
-        app:layout_constraintVertical_bias="0.274" />
+        app:layout_constraintTop_toBottomOf="@+id/btnMassa" />
+
+    <ImageButton
+        android:id="@+id/btnGrabois"
+        android:layout_width="91dp"
+        android:layout_height="123dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/grabois_s"
+        android:contentDescription="Grabois"
+        android:onClick="CallIzquierda"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCristina"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toEndOf="@+id/btnCristina" />
 
     <ImageButton
         android:id="@+id/btnMassa"
@@ -47,8 +62,8 @@
         android:layout_height="123dp"
         android:layout_marginBottom="80dp"
         android:background="@drawable/massa_s"
-        android:contentDescription="foto de massa"
-        android:onClick="presionarDigito"
+        android:contentDescription="Massa"
+        android:onClick="CallIzquierda"
         app:layout_constraintBottom_toBottomOf="@+id/btnCristina"
         app:layout_constraintEnd_toStartOf="@+id/btnCristina"
         app:layout_constraintHorizontal_bias="0.585"
@@ -58,9 +73,10 @@
         android:id="@+id/btnCristina"
         android:layout_width="91dp"
         android:layout_height="123dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="184dp"
         android:background="@drawable/cristina_s"
-        android:contentDescription="foto de cristina"
+        android:contentDescription="Cristina"
+        android:onClick="CallIzquierda"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -69,26 +85,24 @@
         android:id="@+id/btnKirchner"
         android:layout_width="92dp"
         android:layout_height="121dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/kirchner_s"
-        android:contentDescription="foto de kirchner"
-        android:onClick="presionarDigito"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="Kirchner"
+        android:onClick="CallIzquierda"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toEndOf="@+id/btnCristina"
-        app:layout_constraintTop_toBottomOf="@+id/btnGrabois"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGrabois" />
 
     <LinearLayout
-        android:layout_width="424dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="398dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="96dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCristina"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/btnCristina">
 
         <Button
             android:id="@+id/btnIzquierda"
@@ -117,15 +131,33 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btnGrabois"
-        android:layout_width="91dp"
-        android:layout_height="121dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/grabois_s"
-        android:onClick="presionarDigito"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCristina"
+    <Button
+        android:id="@+id/btnVolver2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="Volver"
+        android:text="Volver"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgSeleccion"
+        android:layout_width="153dp"
+        android:layout_height="197dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMassa"
+        app:layout_constraintEnd_toStartOf="@+id/btnReiniciar3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtElecIzquierda" />
+
+    <ImageView
+        android:id="@+id/imgSeleccion2"
+        android:layout_width="150dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toEndOf="@+id/btnCristina" />
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toEndOf="@+id/btnReiniciar3"
+        app:layout_constraintTop_toBottomOf="@+id/txtElecIzquierda" />
 </androidx.constraintlayout.widget.ConstraintLayout>
