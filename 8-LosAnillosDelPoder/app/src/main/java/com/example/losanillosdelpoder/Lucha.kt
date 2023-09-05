@@ -4,36 +4,85 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class Lucha: AppCompatActivity() {
-    //Derecha
-    var btnMilei: ImageButton? = null
-    var btnBullrich: ImageButton? = null
-    var btnLarreta: ImageButton? = null
-    var btnMarra: ImageButton? = null
-    var btnMacri: ImageButton? = null
-    val ataque: Map<String, Int> = mapOf(
-        "Cristina" to 7,
-        "Kirchner" to 0,
-        "Alberto" to -1,
-        "Massa" to (1..5).random(),
-        "Gravois" to 2,
-        "Milei" to 6,
-        "Macri" to 4,
-        "Bullrich" to 4,
-        "larreta" to 0,
-        "Marra" to 2
-    )
+    var imgSeleccion: ImageView? = null
+    var imgSeleccion2: ImageView? = null
+    var imgSeleccion3: ImageView? = null
+    var imgSeleccion4: ImageView? = null
     var guerreros: MutableList<Guerreros> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lucha)
 
+        imgSeleccion?.setBackgroundResource(R.drawable.lapida)
+        imgSeleccion2?.setBackgroundResource(R.drawable.lapida)
+        imgSeleccion3?.setBackgroundResource(R.drawable.lapida)
+        imgSeleccion4?.setBackgroundResource(R.drawable.lapida)
 
-        //println(Pelea(guerreros))
-
+        var guerreros = intent.getParcelableArrayListExtra<Guerreros>("guerreros") as MutableList<Guerreros>
+        Seleccion(guerreros)
+    }
+    fun Seleccion(guerreros:MutableList<Guerreros>){
+        for (x in 0..3){
+            when (x){
+                0 ->
+                    when (guerreros[x].nombre){
+                        "Milei"->
+                            imgSeleccion?.setBackgroundResource(R.drawable.milei)
+                        "Macri"->
+                            imgSeleccion?.setBackgroundResource(R.drawable.macri)
+                        "Marra"->
+                            imgSeleccion?.setBackgroundResource(R.drawable.marra)
+                        "Larreta"->
+                            imgSeleccion?.setBackgroundResource(R.drawable.larreta)
+                        "Bullrich"->
+                            imgSeleccion?.setBackgroundResource(R.drawable.bullrich)
+                    }
+                1 ->
+                    when (guerreros[x].nombre){
+                        "Milei"->
+                            imgSeleccion2?.setBackgroundResource(R.drawable.milei)
+                        "Macri"->
+                            imgSeleccion2?.setBackgroundResource(R.drawable.macri)
+                        "Marra"->
+                            imgSeleccion2?.setBackgroundResource(R.drawable.marra)
+                        "Larreta"->
+                            imgSeleccion2?.setBackgroundResource(R.drawable.larreta)
+                        "Bullrich"->
+                            imgSeleccion2?.setBackgroundResource(R.drawable.bullrich)
+                    }
+                2 ->
+                    when (guerreros[x].nombre){
+                        "Massa"->
+                            imgSeleccion3?.setBackgroundResource(R.drawable.massa)
+                        "Cristina"->
+                            imgSeleccion3?.setBackgroundResource(R.drawable.cristina)
+                        "Grabois"->
+                            imgSeleccion3?.setBackgroundResource(R.drawable.grabois)
+                        "Kirchner"->
+                            imgSeleccion3?.setBackgroundResource(R.drawable.lapida)
+                        "Alberto"->
+                            imgSeleccion3?.setBackgroundResource(R.drawable.alberto)
+                    }
+                3 ->
+                    when (guerreros[x].nombre){
+                        "Massa"->
+                            imgSeleccion4?.setBackgroundResource(R.drawable.massa)
+                        "Cristina"->
+                            imgSeleccion4?.setBackgroundResource(R.drawable.cristina)
+                        "Grabois"->
+                            imgSeleccion4?.setBackgroundResource(R.drawable.grabois)
+                        "Kirchner"->
+                            imgSeleccion4?.setBackgroundResource(R.drawable.lapida)
+                        "Alberto"->
+                            imgSeleccion4?.setBackgroundResource(R.drawable.alberto)
+                    }
+            }
+        }
     }
     fun Pelea(view: View){
         var resultado:Int = 0
@@ -61,3 +110,5 @@ class Lucha: AppCompatActivity() {
         startActivity(intent)
     }
 }
+
+

@@ -155,9 +155,8 @@
         android:id="@+id/imgSeleccion2"
         android:layout_width="150dp"
         android:layout_height="194dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGrabois"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toEndOf="@+id/btnReiniciar3"
         app:layout_constraintTop_toBottomOf="@+id/txtElecIzquierda" />
 </androidx.constraintlayout.widget.ConstraintLayout>

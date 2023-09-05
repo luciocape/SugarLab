@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.losanillosdelpoder.Izquierda
 
 
 class Derecha : AppCompatActivity()  {
@@ -55,10 +56,15 @@ class Derecha : AppCompatActivity()  {
 
         imgSeleccion?.setBackgroundResource(R.drawable.lapida)
         imgSeleccion2?.setBackgroundResource(R.drawable.lapida)
+
+        var guerrero: Guerreros? = null
     }
     //Navegación layouts
     fun IrIzquierda(view: View) {
         val intent = Intent(this, Izquierda::class.java).apply { }
+        for (e in guerreros){
+            intent.putParcelableArrayListExtra("guerreros", ArrayList(guerreros))
+        }
         startActivity(intent)
     }
     fun IrLucha(view: View) {
@@ -76,7 +82,18 @@ class Derecha : AppCompatActivity()  {
     //Selección candidatos
     fun Seleccion(view: View, image:Int){
         if (image == 1){
-
+            when (view.contentDescription.toString()){
+                "Milei"->
+                    imgSeleccion?.setBackgroundResource(R.drawable.milei)
+                "Macri"->
+                    imgSeleccion?.setBackgroundResource(R.drawable.macri)
+                "Marra"->
+                    imgSeleccion?.setBackgroundResource(R.drawable.marra)
+                "Larreta"->
+                    imgSeleccion?.setBackgroundResource(R.drawable.larreta)
+                "Bullrich"->
+                    imgSeleccion?.setBackgroundResource(R.drawable.bullrich)
+            }
         }
         else{
             when (view.contentDescription.toString()){
@@ -132,7 +149,6 @@ class Derecha : AppCompatActivity()  {
     }
     fun Reiniciar(view:View){
         guerreros.removeIf { it.corazon}
-        println(guerreros)
         imgSeleccion?.setBackgroundResource(R.drawable.lapida)
         imgSeleccion2?.setBackgroundResource(R.drawable.lapida)
     }
