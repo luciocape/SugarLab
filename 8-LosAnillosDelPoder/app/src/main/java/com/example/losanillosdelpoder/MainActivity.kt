@@ -4,17 +4,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.losanillosdelpoder.Derecha
 
 class MainActivity : AppCompatActivity() {
+    var guerreros1: MutableList<Guerreros>? = mutableListOf()
+    var background1: Array<Boolean> = arrayOf(false,false,false,false)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView (R.layout.activity_main)
 
-        //println(Pelea(guerreros))
-
     }
     fun abrirDerecha(view: View) {
+        println("no llegue1")
         val intent = Intent(this, Derecha::class.java).apply { }
+        intent.putExtra("guerreros", ArrayList(guerreros1))
+        intent.putExtra("background", background1)
+        println("no llegue1")
         startActivity(intent)
     }
 }

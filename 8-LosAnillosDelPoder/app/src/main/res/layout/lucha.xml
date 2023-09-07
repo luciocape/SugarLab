@@ -7,6 +7,7 @@
     android:backgroundTint="#570C0C">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="316dp"
         android:layout_height="177dp"
         android:layout_marginBottom="80dp"
@@ -31,4 +32,47 @@
             android:onClick="Regresar"
             android:text="Reiniciar" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgSeleccion5"
+        android:layout_width="157dp"
+        android:layout_height="208dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <ImageView
+        android:id="@+id/imgSeleccion6"
+        android:layout_width="159dp"
+        android:layout_height="207dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/imgSeleccion7"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgSeleccion5"
+        app:layout_constraintVertical_bias="0.516" />
+
+    <ImageView
+        android:id="@+id/imgSeleccion7"
+        android:layout_width="160dp"
+        android:layout_height="205dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgSeleccion8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toEndOf="@+id/imgSeleccion5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.533" />
+
+    <ImageView
+        android:id="@+id/imgSeleccion8"
+        android:layout_width="159dp"
+        android:layout_height="206dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toEndOf="@+id/imgSeleccion5"
+        app:layout_constraintTop_toBottomOf="@+id/imgSeleccion5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

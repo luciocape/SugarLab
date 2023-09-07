@@ -1,17 +1,23 @@
 package com.example.losanillosdelpoder
 
+import com.example.losanillosdelpoder.Guerreros
+import com.example.losanillosdelpoder.R
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.losanillosdelpoder.Izquierda
 
 
 class Derecha : AppCompatActivity()  {
+    //Extras
+    var background: MutableList<Boolean> = mutableListOf()
+    var candidato:String? = null
     //Navegación layouts
     var btnIzquierda: Button? = null
     var btnLucha: Button? = null
@@ -23,7 +29,7 @@ class Derecha : AppCompatActivity()  {
     var btnLarreta: ImageButton? = null
     var btnMarra: ImageButton? = null
     var btnMacri: ImageButton? = null
-    var guerreros:MutableList<Guerreros> = mutableListOf()
+    var guerreros: MutableList<Guerreros>? = mutableListOf()
     var btnReiniciar: ImageButton? = null
     var imgSeleccion: ImageView? = null
     var imgSeleccion2: ImageView? = null
@@ -56,23 +62,34 @@ class Derecha : AppCompatActivity()  {
 
         imgSeleccion?.setBackgroundResource(R.drawable.lapida)
         imgSeleccion2?.setBackgroundResource(R.drawable.lapida)
-
-        var guerrero: Guerreros? = null
-    }
-    //Navegación layouts
-    fun IrIzquierda(view: View) {
-        val intent = Intent(this, Izquierda::class.java).apply { }
-        for (e in guerreros){
-            intent.putParcelableArrayListExtra("guerreros", ArrayList(guerreros))
+        guerreros = getIntent().getSerializableExtra("guerreros") as MutableList<Guerreros>?
+        background = getIntent().getBooleanArrayExtra("background")?.toMutableList() ?: mutableListOf(false,false,false,false)
+        if (guerreros != null){
+            for (e in guerreros!!.indices){
+                if (guerreros!![e].corazon){
+                    Seleccion(guerreros!![e].nombre,e)
+                }
+            }
         }
-        startActivity(intent)
     }
+
+    //Navegación layouts
     fun IrLucha(view: View) {
         val intent = Intent(this, Lucha::class.java).apply { }
+        intent.putExtra("guerreros",ArrayList(guerreros))
+        intent.putExtra("background", ArrayList(background))
+        startActivity(intent)
+    }
+    fun IrIzquierda(view: View) {
+        val intent = Intent(this, Izquierda::class.java).apply { }
+        intent.putExtra("guerreros", ArrayList(guerreros))
+        intent.putExtra("background", ArrayList(background))
         startActivity(intent)
     }
     fun IrDerecha(view: View) {
         val intent = Intent(this,Derecha::class.java).apply { }
+        intent.putExtra("guerreros", ArrayList(guerreros))
+        intent.putExtra("background", ArrayList(background))
         startActivity(intent)
     }
     fun Volver(view: View) {
@@ -80,66 +97,101 @@ class Derecha : AppCompatActivity()  {
         startActivity(intent)
     }
     //Selección candidatos
-    fun Seleccion(view: View, image:Int){
-        if (image == 1){
-            when (view.contentDescription.toString()){
-                "Milei"->
+    fun Seleccion(candidato:String, image:Int){
+        if (image == 0){
+            when (candidato){
+                "Milei"-> {
                     imgSeleccion?.setBackgroundResource(R.drawable.milei)
-                "Macri"->
+                    background[2]=true
+                }
+                "Macri"-> {
                     imgSeleccion?.setBackgroundResource(R.drawable.macri)
-                "Marra"->
+                    background[2]=true
+                }
+                "Marra"->{
                     imgSeleccion?.setBackgroundResource(R.drawable.marra)
-                "Larreta"->
+                    background[2]=true
+                }
+                "Larreta"-> {
                     imgSeleccion?.setBackgroundResource(R.drawable.larreta)
-                "Bullrich"->
-                    imgSeleccion?.setBackgroundResource(R.drawable.bullrich)
-            }
-        }
-        else{
-            when (view.contentDescription.toString()){
-                "Milei"->
-                    imgSeleccion2?.setBackgroundResource(R.drawable.milei)
-                "Macri"->
-                    imgSeleccion2?.setBackgroundResource(R.drawable.macri)
-                "Marra"->
-                    imgSeleccion2?.setBackgroundResource(R.drawable.marra)
-                "Larreta"->
-                    imgSeleccion2?.setBackgroundResource(R.drawable.larreta)
-                "Bullrich"->
-                    imgSeleccion2?.setBackgroundResource(R.drawable.bullrich)
-            }
-        }
+                    background[2]=true
+                }
 
+                "Bullrich"-> {
+                    imgSeleccion?.setBackgroundResource(R.drawable.bullrich)
+                    background[2]=true
+                }
+            }
+        }
+        else if(image == 1){
+            when (candidato){
+                "Milei"-> {
+                    imgSeleccion2?.setBackgroundResource(R.drawable.milei)
+                    background[3]=true
+                }
+
+                "Macri"-> {
+                    imgSeleccion2?.setBackgroundResource(R.drawable.macri)
+                    background[3]=true
+                }
+
+                "Marra"-> {
+                    imgSeleccion2?.setBackgroundResource(R.drawable.marra)
+                    background[3]=true
+                }
+
+                "Larreta"-> {
+                    imgSeleccion2?.setBackgroundResource(R.drawable.larreta)
+                    background[3]=true
+
+                }
+
+                "Bullrich"-> {
+                    imgSeleccion2?.setBackgroundResource(R.drawable.bullrich)
+                    background[3]=true
+                }
+            }
+        }
     }
     fun CallDerecha(view: View){
-        Toast.makeText(this, view.contentDescription.toString(), Toast.LENGTH_SHORT).show()
-        if (guerreros.size == 0) {
+        candidato = view.contentDescription.toString()
+        Toast.makeText(this, candidato!!, Toast.LENGTH_SHORT).show()
+        if (guerreros == null) {
             guerreros = mutableListOf(Guerreros(
-                ataque.getValue(view.contentDescription.toString()),
+                ataque.getValue(candidato!!),
                 true,
                 1,
-                view.contentDescription.toString()
+                candidato!!
             ))
-            Seleccion(view,1)
+            Seleccion(candidato!!,0)
         }
         else{
-            for (e in guerreros.indices) {
-                if (guerreros[e].nombre == view.contentDescription.toString()) {
-                    guerreros[e].cant += 1
-                    return
-                } else if (e + 1 != guerreros.size) {
-                    continue
-                } else if (e == 0) {
-                    guerreros.add(
-                        Guerreros(
-                            atk = ataque.getValue(view.contentDescription.toString()),
-                            true,
-                            1,
-                            nmb = view.contentDescription.toString()
-                        )
+            var found = false
+            for (e in guerreros!!.indices) {
+                if (guerreros!![e].nombre == candidato) {
+                    guerreros!![e].cant += 1
+                    found = true
+                    break
+                }
+            }
+            if (!found && (!background[2] || !background[3])){
+                guerreros!!.add(
+                    Guerreros(
+                        ataque.getValue(candidato!!),
+                        true,
+                        1,
+                        nmb = candidato!!
                     )
-                    Seleccion(view,2)
-                } else Toast.makeText(
+                )
+                if (!background[2]){
+                    Seleccion(candidato!!,0)
+                }
+                else if (!background[3]){
+                    Seleccion(candidato!!,1)
+                }
+            }
+            else if (!found){
+                Toast.makeText(
                     this,
                     "Ya no se pueden elegir otros candidatos",
                     Toast.LENGTH_SHORT
@@ -148,8 +200,10 @@ class Derecha : AppCompatActivity()  {
         }
     }
     fun Reiniciar(view:View){
-        guerreros.removeIf { it.corazon}
+        guerreros?.removeIf { it.corazon}
         imgSeleccion?.setBackgroundResource(R.drawable.lapida)
         imgSeleccion2?.setBackgroundResource(R.drawable.lapida)
+        background[2]=false
+        background[3]=false
     }
 }
