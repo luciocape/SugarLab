@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1F372F"
     android:onClick="Calcular"
     tools:context=".MainActivity">
 
@@ -183,7 +184,7 @@
         android:layout_width="328dp"
         android:layout_height="123dp"
         android:layout_marginTop="80dp"
-        android:text="0"
+        android:text="0.0"
         android:textAlignment="textEnd"
         android:textSize="96sp"
         app:layout_constraintEnd_toEndOf="parent"
