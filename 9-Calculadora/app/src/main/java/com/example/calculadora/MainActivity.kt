@@ -2,17 +2,16 @@ package com.example.calculadora
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-    var opr:Char = '+'
-    var mostrar:String = "0.0"
+    var oprs:MutableList<Char> = mutableListOf()
     var numeros:MutableList<Button> = mutableListOf()
-    var nums:MutableList<String> = mutableListOf("0")
+    var nums:MutableList<Double> = mutableListOf()
     val oprList:Array<Char> = arrayOf('-','+','x','/')
-    var operación:Boolean = false
     var btnIgual:Button ?= null
     var btnMenos:Button ?= null
     var btnMas:Button ?= null
@@ -26,16 +25,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        numeros.add(findViewById(R.id.btn0))
-        numeros.add(findViewById(R.id.btn1))
-        numeros.add(findViewById(R.id.btn2))
-        numeros.add(findViewById(R.id.btn3))
-        numeros.add(findViewById(R.id.btn4))
-        numeros.add(findViewById(R.id.btn5))
-        numeros.add(findViewById(R.id.btn6))
-        numeros.add(findViewById(R.id.btn7))
-        numeros.add(findViewById(R.id.btn8))
-        numeros.add(findViewById(R.id.btn9))
 
         btnIgual = findViewById(R.id.btnIgual)
         btnMenos = findViewById(R.id.btnMenos)
@@ -45,44 +34,68 @@ class MainActivity : AppCompatActivity() {
         btnReset = findViewById(R.id.btnReset)
 
         txtResultado = findViewById(R.id.txtResultado)
+        Log.i("txtResultado",txtResultado?.text.toString())
+        if (nums.isEmpty()){
+                Log.i("numeros",nums.toString() )
+                Log.i("tamaño numeros",nums.size.toString())
+            }
     }
-    fun Evaluar(nums:MutableList<String>, opr:Char):String{
-        var resultado = "0"
-        for (x in nums){
-            when (opr){
-                '+' ->
-
-                '-' -> return (num1 - num2).toString()
-                'x' -> return (num1 * num2).toString()
-                '/' -> return (num1 / num2).toString()
+    fun Evaluar(nums:MutableList<Double>, oprs:MutableList<Char>):String{
+        var resultado:Double = nums[0]
+        if (nums.size >= 2){
+            for (x in oprs.indices){
+                when (oprs[x]){
+                    '+' -> resultado += nums[x+1]
+                    '-' -> resultado -= nums[x+1]
+                    'x' -> resultado *= nums[x+1]
+                    '/' -> resultado /= nums[x+1]
+                }
             }
         }
+        else if (nums.isNotEmpty()){
+            when (oprs[0]){
+                '+' -> resultado = nums[0] + nums[0]
+                '-' -> nums[0] - nums[0]
+                'x' -> nums[0] * nums[0]
+                '/' -> nums[0] / nums[0]
+            }
+        }
+        else return "0.0"
+        return resultado.toString()
 
-        return "0.0"
     }
     fun Calcular(view: View){
         val boton = view as Button
         val textoBoton:String = boton.text.toString()
-        mostrar = txtResultado?.text.toString()
-
-        if (textoBoton.toCharArray()[0] in oprList){
-            opr = textoBoton.toCharArray()[0]
-            nums.add(txtResultado?.text.toString())
-            txtResultado?.text = opr.toString()
+        var mostrar = txtResultado?.text.toString()
+        if ( textoBoton.toCharArray()[0] in oprList){
+            if (nums.isEmpty()){
+                nums.add(txtResultado?.text.toString().toDouble())
+                oprs.add(textoBoton.toCharArray()[0])
+            }
+            else if (nums.size > oprs.size){
+                oprs.add(textoBoton.toCharArray()[0])
+                nums.add(txtResultado?.text.toString().toDouble())
+            }
+            else{
+                oprs[oprs.lastIndex] = textoBoton.toCharArray()[0]
+            }
+            txtResultado?.text = oprs.last().toString()
         }
         else if (textoBoton != "Reset" && textoBoton != "="){
             val concatenar = mostrar + textoBoton
-            mostrar = QuitarCerosIzquierda(concatenar)
+            mostrar = Limpieza(concatenar)
             txtResultado?.text  = mostrar
         }
-        if (boton.text.toString() == "="){
-            txtResultado?.text  = Evaluar(nums, opr)
+        if (textoBoton == "="){
+            txtResultado?.text  = Evaluar(nums, oprs)
         }
+        else if (textoBoton == "Reset") txtResultado?.text = "0.0"
     }
-    fun QuitarCerosIzquierda(str:String):String{
+    fun Limpieza(str:String):String{
         var i = 0
         val sb = StringBuffer(str)
-        while (i < str.length && (str[i] == '0' || str[i] == '.')) {
+        while (i < str.length && (str[i] == '0' || str[i] == '.' || str[i] in oprs)) {
             i++
             sb.replace(0,i,"")
         }
