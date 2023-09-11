@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1F372F"
-    android:onClick="Calcular"
+    android:backgroundTint="#101010"
     tools:context=".MainActivity">
 
     <TableLayout
@@ -19,31 +19,37 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/btn7"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="7" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="7"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btn8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="8" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="8"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btn9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="9" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="9"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
         </TableRow>
 
         <TableRow
@@ -55,24 +61,30 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="4" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="4"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btn5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="5" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="5"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btn6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="6" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="6"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
         </TableRow>
 
         <TableRow
@@ -84,24 +96,30 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="1" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="1"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btn2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="2" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="2"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btn3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="3" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="3"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
         </TableRow>
 
         <TableRow
@@ -113,24 +131,30 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="+" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarOperador"
+                android:text="+"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btn0"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="0" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarNumero"
+                android:text="0"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btnMenos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="-" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarOperador"
+                android:text="-"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
         </TableRow>
 
         <TableRow
@@ -142,24 +166,31 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="/" />
-
-            <Button
-                android:id="@+id/btnX"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="x" />
+                android:backgroundTint="#000000"
+                android:onClick="agregarOperador"
+                android:text="/"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
 
             <Button
                 android:id="@+id/btnIgual"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="Calcular"
-                android:text="=" />
+                android:backgroundTint="#000000"
+                android:onClick="igualar"
+                android:text="="
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
+
+            <Button
+                android:id="@+id/btnX"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#000000"
+                android:onClick="agregarOperador"
+                android:text="x"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
+
         </TableRow>
 
         <TableRow
@@ -168,10 +199,11 @@
 
             <Button
                 android:id="@+id/btnReset"
-                android:layout_width="111dp"
-                android:layout_height="wrap_content"
+                android:layout_width="325dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:onClick="Calcular"
+                android:backgroundTint="#3303FFF6"
+                android:onClick="reset"
                 android:text="Reset"
                 android:textSize="34sp" />
 
@@ -186,6 +218,7 @@
         android:layout_marginTop="80dp"
         android:text="0.0"
         android:textAlignment="textEnd"
+        android:textColor="#0B6663"
         android:textSize="96sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
