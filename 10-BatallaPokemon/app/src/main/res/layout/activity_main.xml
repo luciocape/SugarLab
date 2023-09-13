@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A3DF9C"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imgEnemigo"
+        android:layout_width="215dp"
+        android:layout_height="223dp"
+        android:layout_marginStart="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgAliado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imgAliado"
+        android:layout_width="217dp"
+        android:layout_height="213dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button15"
+        app:layout_constraintVertical_bias="0.416"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="96dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnMochila"
+            android:layout_width="60dp"
+            android:layout_height="81dp"
+            android:layout_weight="1"
+            android:background="@drawable/mochila"
+            android:onClick="mochila" />
+
+        <TableLayout
+            android:layout_width="292dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#221818"
+                    android:text="Ataque1"
+                    app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#221818"
+                    android:text="Ataque2"
+                    app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#221818"
+                    android:text="Ataque3"
+                    app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#221818"
+                    android:text="Ataque4"
+                    app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empezar Batalla"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
+        android:id="@+id/layMochila"
+        android:layout_width="388dp"
+        android:layout_height="355dp"
+        android:background="#BFBBBB"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btnEvee"
+                android:layout_width="0dp"
+                android:layout_height="143dp"
+                android:layout_weight="1"
+                android:contentDescription="evee"
+                android:onClick="seleccionPokemon"
+                android:scaleType="fitCenter"
+                android:src="@drawable/evee"
+                tools:src="@drawable/evee" />
+
+            <ImageButton
+                android:id="@+id/btnUmbreon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="umbreon"
+                android:onClick="seleccionPokemon"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/umbreon" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/btnMeawth"
+                android:layout_width="0dp"
+                android:layout_height="155dp"
+                android:layout_weight="1"
+                android:contentDescription="meawth"
+                android:onClick="seleccionPokemon"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/meawth" />
+
+            <ImageButton
+                android:id="@+id/btnSnorlax"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:contentDescription="snorlax"
+                android:onClick="seleccionPokemon"
+                android:scaleType="fitCenter"
+                tools:src="@drawable/Snorlax" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#221818"
+                android:text="Elegir"
+                android:textSize="24sp"
+                app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
