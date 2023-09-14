@@ -38,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         btnMeawth = findViewById(R.id.btnMeawth)
         btnUmbreon = findViewById(R.id.btnUmbreon)
         btnSnorlax = findViewById(R.id.btnSnorlax)
+        imgAliado = findViewById(R.id.imgAliado)
+        imgEnemigo = findViewById(R.id.imgEnemigo)
 
         val poke1 = btnEvee as ImageButton
         val poke2 = btnUmbreon as ImageButton
@@ -83,49 +85,41 @@ class MainActivity : AppCompatActivity() {
 
         }
         pokeElegido = textoBoton
-        pokeNoElegido.removeIf { it == pokeElegido }
+
     }
 
     fun elegirPokemon(view: View) {
+        pokeNoElegido.removeIf { it == pokeElegido}
         if (equipo1.size < 2) {
             equipo1.add(Pokemon(pokeElegido, "madera", 2, 1))
-        } else {
-            equipo2.add(Pokemon(pokeNoElegido[0], "madera", 2, 1))
-            equipo2.add(Pokemon(pokeNoElegido[1], "madera", 2, 1))
-        }
-        for (x in equipo1) {
-            when (x.nombre) {
+            when (equipo1[equipo1.size-1].nombre) {
                 "evee" -> {
-                    imgAliado?.setImageResource(R.drawable.evee)
+                    imgAliado?.setBackgroundResource(R.drawable.evee)
                 }
-
                 "snorlax" -> {
                     imgAliado?.setImageResource(R.drawable.snorlax)
                 }
-
                 "meawth" -> {
                     imgAliado?.setImageResource(R.drawable.meawth)
                 }
-
                 "umbreon" -> {
                     imgAliado?.setImageResource(R.drawable.umbreon)
                 }
             }
-        }
-        for (x in pokeNoElegido) {
-            when (x) {
+        } else {
+            equipo2.add(Pokemon(pokeNoElegido[0], "madera", 2, 1))
+            equipo2.add(Pokemon(pokeNoElegido[1], "madera", 2, 1))
+            println(equipo2)
+            when (pokeNoElegido[pokeNoElegido.size-1]) {
                 "evee" -> {
                     imgEnemigo?.setImageResource(R.drawable.evee)
                 }
-
                 "snorlax" -> {
-                    imgEnemigo?.setImageResource(R.drawable.Snorlax)
+                    imgEnemigo?.setImageResource(R.drawable.snorlax)
                 }
-
                 "meawth" -> {
                     imgEnemigo?.setImageResource(R.drawable.meawth)
                 }
-
                 "umbreon" -> {
                     imgEnemigo?.setImageResource(R.drawable.umbreon)
                 }

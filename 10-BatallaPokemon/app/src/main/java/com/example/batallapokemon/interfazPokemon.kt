@@ -5,10 +5,11 @@ import android.widget.Button
 
 interface interfazPokemon {
     var nombre:String
+    var tipo:String
     var nivel:Int
     var ataque:Int
     var defensa:Int
-    var tipo:String
+    var vida:Int
     fun atacar(atkDefensor:Int,nvlDefensor:Int, tpoDefensor:String, pokemon: Pokemon, elementos:Array<String>):Double{
         var efectividad = 1.0
         when (elementos.indexOf(tipo) - elementos.indexOf(pokemon.tipo)){

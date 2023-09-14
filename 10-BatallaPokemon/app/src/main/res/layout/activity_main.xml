@@ -7,27 +7,42 @@
     android:background="#A3DF9C"
     tools:context=".MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="240dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="36dp"
+        android:max="100"
+        android:progress="100"
+        android:progressBackgroundTint="#C6CF0202"
+        android:progressTint="#29A108"
+        app:layout_constraintBottom_toTopOf="@+id/imgEnemigo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
     <ImageView
         android:id="@+id/imgEnemigo"
         android:layout_width="215dp"
         android:layout_height="223dp"
         android:layout_marginStart="36dp"
+        android:contentDescription="enemigo"
         app:layout_constraintBottom_toTopOf="@+id/imgAliado"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.39" />
 
     <ImageView
         android:id="@+id/imgAliado"
         android:layout_width="217dp"
         android:layout_height="213dp"
         android:layout_marginEnd="36dp"
+        android:contentDescription="aliado"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button15"
-        app:layout_constraintVertical_bias="0.416"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.416" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -44,6 +59,7 @@
             android:layout_height="81dp"
             android:layout_weight="1"
             android:background="@drawable/mochila"
+            android:contentDescription="btnMochila"
             android:onClick="mochila" />
 
         <TableLayout
@@ -118,7 +134,7 @@
         android:layout_width="388dp"
         android:layout_height="355dp"
         android:background="#BFBBBB"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -174,7 +190,7 @@
                 android:contentDescription="snorlax"
                 android:onClick="seleccionPokemon"
                 android:scaleType="fitCenter"
-                tools:src="@drawable/Snorlax" />
+                tools:src="@drawable/snorlax" />
 
         </TableRow>
 
@@ -185,11 +201,12 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/btnElegir"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="#221818"
+                android:onClick="elegirPokemon"
                 android:text="Elegir"
                 android:textSize="24sp"
                 app:cornerRadius="@dimen/cardview_compat_inset_shadow" />
@@ -197,5 +214,34 @@
         </TableRow>
 
     </TableLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="240dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="36dp"
+        android:max="100"
+        android:progress="100"
+        android:progressBackgroundTint="#C6CF0202"
+        android:progressTint="#29A108"
+        app:layout_constraintBottom_toTopOf="@+id/imgEnemigo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="240dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="12dp"
+        android:max="100"
+        android:progress="100"
+        android:progressBackgroundTint="#C6CF0202"
+        android:progressTint="#29A108"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
