@@ -1,15 +1,16 @@
 package com.example.batallapokemon
 
-import android.content.res.ColorStateList
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TableLayout
-import androidx.core.graphics.toColorInt
+import androidx.appcompat.app.AppCompatActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
     var btnMochila: ImageButton? = null
@@ -52,7 +53,6 @@ class MainActivity : AppCompatActivity() {
             poke4.contentDescription.toString()
         )
     }
-
     fun mochila(view: View) {
         if (bag % 2 == 0) {
             layMochila?.visibility = View.VISIBLE

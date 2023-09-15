@@ -3,7 +3,9 @@ package com.example.batallapokemon
 import android.view.View
 import android.widget.Button
 
-interface interfazPokemon {
+interface InterfazPokemon {
+    abstract val sprites: Any
+    abstract val types: Any
     var nombre:String
     var tipo:String
     var nivel:Int

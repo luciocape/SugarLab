@@ -1,7 +1,7 @@
 package com.example.batallapokemon
 
 
-class Pokemon(nmb:String,tpo:String,atk:Int,dfs:Int):interfazPokemon {
+class Pokemon(nmb:String,tpo:String,atk:Int,dfs:Int):InterfazPokemon {
     override var nombre: String = nmb
     override var tipo: String = tpo
     override var nivel: Int = 1
