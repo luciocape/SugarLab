@@ -15,5 +15,6 @@ interface PokeApiService {
                 .build().create(PokeApiService::class.java)
     }
     @GET("{pokeId}")
-    suspend fun getPokemonById(@Path("pokeId") pokeId: Int):PokeResponse
+    suspend fun getPokemonById(@Path("pokeId") pokeId: Int):PokemonResponse
+
 }

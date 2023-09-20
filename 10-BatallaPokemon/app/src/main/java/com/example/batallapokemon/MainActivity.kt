@@ -29,10 +29,15 @@ class MainActivity : AppCompatActivity() {
     var pokeElegido: String = "snorlax"
     var pokeNoElegido: MutableList<String> = mutableListOf()
 
+    val viewModel by viewModels<PokeViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setContent {
+            mainScreen(viewModel)
+        }
         btnMochila = findViewById(R.id.btnMochila)
         layMochila = findViewById(R.id.layMochila)
         btnEvee = findViewById(R.id.btnEvee)

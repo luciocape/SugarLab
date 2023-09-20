@@ -14,7 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
-class Derecha : AppCompatActivity()  {
+class gDerecha : AppCompatActivity()  {
     //Extras
     var background: MutableList<Boolean> = mutableListOf()
     var candidato:String? = null
