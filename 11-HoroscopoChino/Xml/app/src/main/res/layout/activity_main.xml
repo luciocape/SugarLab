@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#150E0E"
+        android:onClick="RecivirAño"
+        android:text="Enviar"
+        android:textSize="48sp"
+        app:cornerRadius="@dimen/cardview_compat_inset_shadow"
+        app:layout_constraintBottom_toTopOf="@+id/txtResultado"
+        app:layout_constraintEnd_toEndOf="@+id/txtResultado"
+        app:layout_constraintStart_toStartOf="@+id/txtResultado"
+        app:layout_constraintTop_toBottomOf="@+id/txtInput" />
+
+    <TextView
+        android:id="@+id/txtResultado"
+        android:layout_width="365dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="300dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtInput"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="@+id/txtInput"
+        app:layout_constraintTop_toBottomOf="@+id/txtInput" />
+
+    <EditText
+        android:id="@+id/txtInput"
+        android:layout_width="295dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:inputType="number"
+        android:outlineProvider="paddedBounds"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
