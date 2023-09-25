@@ -66,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         }
         bag += 1
     }
-
     fun seleccionPokemon(view: View) {
         val boton = view as ImageButton
         val textoBoton = boton.contentDescription.toString()
